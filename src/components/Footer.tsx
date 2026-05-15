@@ -20,15 +20,15 @@ export const Footer: React.FC = () => {
         <a
           className='text-neutral-400 border-b border-neutral-400 border-dotted
           hover:text-violet-400'
-          href='https://github.com/3lur'
+          href='https://github.com/is3ric'
           target='_blank'>
-          3lur
+          3ric
         </a>
         <span className='px-1'>|</span>
         <a
           className='text-neutral-400 border-b border-neutral-400 border-dotted
           hover:text-violet-400'
-          href='https://github.com/3lur/funny-emoji-maker'
+          href='https://github.com/is3ric/funny-emoji-maker'
           target='_blank'>
           Source Code
         </a>
