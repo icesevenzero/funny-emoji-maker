@@ -1,11 +1,12 @@
 export const pathToImage = (path: string) => {
   return new Promise<HTMLImageElement | null>((resolve) => {
-    if (path === '') {
+    if (!path) {
       resolve(null)
+      return
     }
     const img = new Image(400, 400)
     img.src = path
-    img.onload = (e) => {
+    img.onload = () => {
       resolve(img)
     }
   })
