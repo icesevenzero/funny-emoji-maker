@@ -147,54 +147,71 @@ export const Main: React.FC = () => {
         </div>
       </div>
 
-      {loaded && (
-        <div className='w-full mt-4'>
-          <header className='flex flex-wrap items-center justify-center gap-3 p-4 border-b border-neutral-400 b-op-20 b-solid'>
-            {tabs.map((item, index) => {
-              const src = selectedImage()[item]
-              return (
-                <div
-                  className={`${selectedTab === item
-                    ? 'bg-violet-200 dark:bg-violet-200'
-                    : 'bg-neutral-100 dark:bg-neutral-600'
-                    } flex items-center justify-center h-16 w-16 rd-lg cursor-pointer transition-colors hover:bg-violet-200 dark:hover:bg-violet-200`}
-                  key={item}
-                  onClick={() => setSelectedTab(item)}>
-                  {src && (
-                    <img
-                      src={src}
-                      alt={selectedTab + index}
-                      className='w-12 h-12'
-                    />
-                  )}
-                </div>
-              )
-            })}
-          </header>
-
-          <section className='p-4'>
-            <div className='flex flex-wrap gap-2 justify-center'>
-              {images[selectedTab].map((item, index) => {
+      <div className='w-full mt-4'>
+        {loaded ? (
+          <>
+            <header className='flex flex-wrap items-center justify-center gap-3 p-4 border-b border-neutral-400 b-op-20 b-solid'>
+              {tabs.map((item, index) => {
+                const src = selectedImage()[item]
                 return (
                   <div
-                    className={`${index === selectedIndex[selectedTab]
-                      ? 'bg-violet-100 box-border b-2 b-solid b-violet-400'
-                      : 'bg-neutral-100 dark:bg-neutral-600 b-transparent'
-                      } flex items-center justify-center h-14 w-14 rd-md cursor-pointer transition-colors hover:bg-violet-200 dark:hover:bg-violet-200`}
+                    className={`${selectedTab === item
+                      ? 'bg-violet-200 dark:bg-violet-200'
+                      : 'bg-neutral-100 dark:bg-neutral-600'
+                      } flex items-center justify-center h-16 w-16 rd-lg cursor-pointer transition-colors hover:bg-violet-200 dark:hover:bg-violet-200`}
                     key={item}
-                    onClick={() => handleSelectItem({ tab: selectedTab, index })}>
-                    <img
-                      src={item}
-                      alt={selectedTab + index}
-                      className='w-10 h-10'
-                    />
+                    onClick={() => setSelectedTab(item)}>
+                    {src && (
+                      <img
+                        src={src}
+                        alt={selectedTab + index}
+                        className='w-12 h-12'
+                      />
+                    )}
                   </div>
                 )
               })}
-            </div>
-          </section>
-        </div>
-      )}
+            </header>
+
+            <section className='p-4'>
+              <div className='flex flex-wrap gap-2 justify-center'>
+                {images[selectedTab].map((item, index) => {
+                  return (
+                    <div
+                      className={`${index === selectedIndex[selectedTab]
+                        ? 'bg-violet-100 box-border b-2 b-solid b-violet-400'
+                        : 'bg-neutral-100 dark:bg-neutral-600 b-transparent'
+                        } flex items-center justify-center h-14 w-14 rd-md cursor-pointer transition-colors hover:bg-violet-200 dark:hover:bg-violet-200`}
+                      key={item}
+                      onClick={() => handleSelectItem({ tab: selectedTab, index })}>
+                      <img
+                        src={item}
+                        alt={selectedTab + index}
+                        className='w-10 h-10'
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            </section>
+          </>
+        ) : (
+          <>
+            <header className='flex flex-wrap items-center justify-center gap-3 p-4 border-b border-neutral-400 b-op-20 b-solid'>
+              {tabs.map((item) => (
+                <div key={item} className='skeleton rd-lg h-16 w-16' />
+              ))}
+            </header>
+            <section className='p-4'>
+              <div className='flex flex-wrap gap-2 justify-center'>
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div key={i} className='skeleton rd-md h-14 w-14' />
+                ))}
+              </div>
+            </section>
+          </>
+        )}
+      </div>
     </main>
   )
 }

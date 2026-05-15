@@ -41,3 +41,15 @@ html.dark {
 canvas.animation {
   animation: slidein 0.3s alternate;
 }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background-color: #e5e7eb;
+}
+html.dark .skeleton {
+  background-color: #525252;
+}
