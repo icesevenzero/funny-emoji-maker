@@ -6,7 +6,7 @@
 
 Generate your own Funny Emojis!
 
-[Demo](https://emoji-maker.onrender.com/)
+[Demo](https://funnyemojimaker.pages.dev/)
 
 ## Usage
 
