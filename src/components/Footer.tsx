@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
         <a
           className='text-neutral-400 border-b border-neutral-400 border-dotted
           hover:text-violet-400'
-          href='https://github.com/is3ric'
+          href='https://github.com/icesevenzero'
           target='_blank'>
           3ric
         </a>
